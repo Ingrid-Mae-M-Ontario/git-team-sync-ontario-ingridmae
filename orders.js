@@ -16,6 +16,10 @@ function cancelOrder(order) {
 }
 
 function calculateLoyaltyPoints(order) {
+  // VIP bonus: orders over $100 earn 1.5x points
+  if (order.total > 100) {
+    return Math.floor((order.total / 10) * 1.5);
+  }
   return Math.floor(order.total / 10);
 }
 
